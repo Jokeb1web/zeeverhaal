@@ -25,77 +25,87 @@ Wat ga je doen?
 → [[Wacht eens?]]
 
 </tw-passagedata><tw-passagedata pid="3" name="Haar wat laten doen en papa lastigvallen en straks meer TV vragen omdat je minder aandacht hebt gekregen, dat werkt altijd" tags="" position="662.5,400" size="100,100">Oke, wat gaan we doen vandaag? 
+(set: $koffiegegoten to false)
 * [[Zoveel mogelijkheden!]]
 </tw-passagedata><tw-passagedata pid="4" name="De computer start toch terug op!" tags="" position="475,525" size="100,100">Oke, wat gaan we doen vandaag? 
 * [[Zoveel mogelijkheden!]]</tw-passagedata><tw-passagedata pid="5" name="Zoveel mogelijkheden!" tags="" position="600,525" size="100,100">Wat gaan we doen vandaag? 
 Je hebt zoveel ideeën!!
-(if: $koffiegegoten)[[mama boos]] 
-(else:)[[Oké waar heb je zin in?]] </tw-passagedata><tw-passagedata pid="6" name="Wacht eens?" tags="" position="550,650" size="100,100">→ [[De computer start toch terug op!]]</tw-passagedata><tw-passagedata pid="7" name="mama boos" tags="" position="725,650" size="100,100">[[Zeg sorry]]</tw-passagedata><tw-passagedata pid="8" name="Oké waar heb je zin in?" tags="" position="600,775" size="100,100">&lt;&lt;set $schuppenKlaar to false&gt;&gt;
-&lt;&lt;set $haaienKlaar to false&gt;&gt;
-&lt;&lt;set $bloemenKlaar to false&gt;&gt;
+(if: $koffiegegoten is true)[
+  [[&#39;Niks&#39;, zegt mama, want ze is boos over die koffie.]]
+]
+(else:)[
+  [[Oké waar heb je zin in?]]
+]</tw-passagedata><tw-passagedata pid="6" name="Wacht eens?" tags="" position="550,650" size="100,100">→ [[De computer start toch terug op!]]</tw-passagedata><tw-passagedata pid="7" name="Oké waar heb je zin in?" tags="" position="600,775" size="100,100">(set: $schuppenKlaar to false)
+(set: $haaienKlaar to false)
+(set: $bloemenKlaar to false)
 
 Je hebt vandaag drie superbelangrijke dingen te doen. Welke kies je eerst?
 
-* [[Schuppen]]
-* [[Haaientanden zoeken]]
-* [[Bloemen verkopen]]
-</tw-passagedata><tw-passagedata pid="9" name="Schuppen" tags="" position="475,900" size="100,100">&lt;&lt;set $schuppenKlaar to true&gt;&gt;
+[[Schuppen]]
+[[Haaientanden zoeken]]
+[[Bloemen verkopen]]
+</tw-passagedata><tw-passagedata pid="8" name="Schuppen" tags="" position="475,900" size="100,100">(set: $schuppenKlaar to true)
 
 Wow!!!
 &lt;video controls width=&quot;640&quot;&gt;
-  &lt;source src=&quot;put.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;https://jokeb1web.github.io/zeeverhaal/put.mp4&quot; type=&quot;video/mp4&quot;&gt;
 &lt;/video&gt;
 
-[[Terug|Check klaar]]</tw-passagedata><tw-passagedata pid="10" name="Haaientanden zoeken" tags="" position="600,900" size="100,100">&lt;&lt;set $haaienKlaar to true&gt;&gt;
+[[Terug|Check klaar]]</tw-passagedata><tw-passagedata pid="9" name="Haaientanden zoeken" tags="" position="600,900" size="100,100">(set: $haaienKlaar to true)
 
 Wow!!!!
+
 &lt;video controls width=&quot;640&quot;&gt;
-  &lt;source src=&quot;haaientanden.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;https://jokeb1web.github.io/zeeverhaal/haaientanden.mp4&quot; type=&quot;video/mp4&quot;&gt;
 &lt;/video&gt;
 
-[[Terug|Check klaar]]</tw-passagedata><tw-passagedata pid="11" name="Bloemen verkopen" tags="" position="725,900" size="100,100">&lt;&lt;set $bloemenKlaar to true&gt;&gt;
+[[Terug|Check klaar]]</tw-passagedata><tw-passagedata pid="10" name="Bloemen verkopen" tags="" position="725,900" size="100,100">(set: $bloemenKlaar to true)
 
 Wow!!!
 &lt;video controls width=&quot;640&quot;&gt;
-  &lt;source src=&quot;bloemen.MOV&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;https://jokeb1web.github.io/zeeverhaal/bloemen.mp4&quot; type=&quot;video/mp4&quot;&gt;
 &lt;/video&gt;
 
-[[Terug|Check klaar]]</tw-passagedata><tw-passagedata pid="12" name="Zeg sorry" tags="" position="725,775" size="100,100">&lt;&lt;audio &quot;sorry&quot; play&gt;&gt;
+[[Terug|Check klaar]]</tw-passagedata><tw-passagedata pid="11" name="Zeg sorry" tags="" position="725,775" size="100,100">&lt;audio autoplay&gt;
+  &lt;source src=&quot;https://jokeb1web.github.io/zeeverhaal/sorry.aac&quot; type=&quot;audio/aac&quot;&gt;
+&lt;/audio&gt;
 [[Oké waar heb je zin in?]] 
-</tw-passagedata><tw-passagedata pid="13" name="Check klaar" tags="" position="475,1025" size="100,100">&lt;&lt;if $schuppenKlaar and $haaienKlaar and $bloemenKlaar&gt;&gt;
-
+</tw-passagedata><tw-passagedata pid="12" name="Check klaar" tags="" position="475,1025" size="100,100">(if: $schuppenKlaar and $haaienKlaar and $bloemenKlaar)[
 Je hebt ALLES gedaan! Wat een dag.
 
 [[Ga verder|Maar dan!]]
-
-&lt;&lt;else&gt;&gt;
-
+]
+(else:)[
 Je bent nog niet helemaal klaar...
 
-&lt;&lt;if not $schuppenKlaar&gt;&gt;* [[Schuppen]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if not $haaienKlaar&gt;&gt;* [[Haaientanden zoeken]]&lt;&lt;/if&gt;&gt;
-&lt;&lt;if not $bloemenKlaar&gt;&gt;* [[Bloemen verkopen]]&lt;&lt;/if&gt;&gt;
-
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Maar dan!" tags="" position="600,1150" size="100,100">Maar dan!
+(if: not $schuppenKlaar)[• [[Schuppen]]&lt;br&gt;]
+(if: not $haaienKlaar)[• [[Haaientanden zoeken]]&lt;br&gt;]
+(if: not $bloemenKlaar)[• [[Bloemen verkopen]]]
+]</tw-passagedata><tw-passagedata pid="13" name="Maar dan!" tags="" position="600,1150" size="100,100">Maar dan!
 Oh nee!
 
+&lt;img src=&quot;https://jokeb1web.github.io/zeeverhaal/crashing-to-earth-meteor-showers101.gif&quot; alt=&quot;Meteor shower&quot; width=&quot;640&quot;&gt;
+
 &lt;video controls width=&quot;640&quot;&gt;
-  &lt;source src=&quot;komeet.MOV&quot; type=&quot;video/mp4&quot;&gt;
+  &lt;source src=&quot;https://jokeb1web.github.io/zeeverhaal/komeet.mp4&quot; type=&quot;video/mp4&quot;&gt;
 &lt;/video&gt;
 
 Wat wil je doen?
 
 * [[Niks]]
-* [[De planeet redden]]</tw-passagedata><tw-passagedata pid="15" name="Niks" tags="" position="600,1275" size="100,100">→ [[Einde: het einde van de planeet]]
-</tw-passagedata><tw-passagedata pid="16" name="De planeet redden" tags="" position="725,1275" size="100,100">&lt;&lt;audio &quot;raket schieten&quot; play&gt;&gt;
+* [[De planeet redden]]</tw-passagedata><tw-passagedata pid="14" name="Niks" tags="" position="600,1275" size="100,100">→ [[Einde: het einde van de planeet]]
 
-→ [[Einde: de redding van de planeet]]</tw-passagedata><tw-passagedata pid="17" name="Einde: het einde van de planeet" tags="" position="600,1400" size="100,100">Jammer maar helaas! De planeet is ontploft!
+&lt;img src=&quot;https://jokeb1web.github.io/zeeverhaal/explode-explosion.gif&quot; alt=&quot;Meteor shower&quot; width=&quot;640&quot;&gt;</tw-passagedata><tw-passagedata pid="15" name="De planeet redden" tags="" position="725,1275" size="100,100">&lt;audio autoplay&gt;
+  &lt;source src=&quot;https://jokeb1web.github.io/zeeverhaal/raket schieten.m4a&quot; type=&quot;audio/aac&quot;&gt;
+&lt;/audio&gt;
 
-&lt;&lt;restart&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Einde: de redding van de planeet" tags="" position="725,1400" size="100,100">Bedankt! Jij bent een held!!!
+→ [[Einde: de redding van de planeet]]</tw-passagedata><tw-passagedata pid="16" name="Einde: het einde van de planeet" tags="" position="600,1400" size="100,100">Jammer maar helaas! De planeet is ontploft!
+
+[[JE BENT OP VAKANTIE!   Aan ZEE! ]]</tw-passagedata><tw-passagedata pid="17" name="Einde: de redding van de planeet" tags="" position="725,1400" size="100,100">Bedankt! Jij bent een held!!!
 DE HELD VAN DE ZEE!
 
-&lt;&lt;restart&gt;&gt;
-</tw-passagedata></tw-storydata>
+[[JE BENT OP VAKANTIE!   Aan ZEE! ]]
+</tw-passagedata><tw-passagedata pid="18" name="&#39;Niks&#39;, zegt mama, want ze is boos over die koffie." tags="" position="475,775" size="100,100">[[Zeg sorry]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
